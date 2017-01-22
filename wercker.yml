@@ -1,0 +1,16 @@
+# The container definition we want to use for developing our app
+box: golang
+# Define the dev pipeline
+build:
+    steps:
+        - wercker/golint
+        - script:
+            name: go build
+            code: |
+                go build ./...
+        - script: 
+            name: go test
+            code: |
+                go test ./...
+             
+
